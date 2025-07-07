@@ -311,13 +311,11 @@ export function createTrackLibraryURL(
  * Encodes a text string as a valid component of a Uniform Resource Identifier (URI),
  * while replacing the plus (+) symbol from `%2B` to `%252B` so it works correctly
  * in last.fm.
- * @param uriComponent A value representing an unencoded URI component.
+ * @param uriComponent - A value representing an unencoded URI component.
  * @returns Encoded URI component.
  */
-export function encodeLastFMURIComponent(
-	uriComponent: string | number | boolean
-): string {
-	return encodeURIComponent(uriComponent).replace(/%2B/g, "%252B");
+export function encodeLastFMURIComponent(uriComponent: string): string {
+	return encodeURIComponent(uriComponent.replace(/\+/g, '%2B'));
 }
 
 /**
